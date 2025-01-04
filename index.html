@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Count Tracker</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            background-color: #f5f5f5; /* Light gray background */
+            color: #333; /* Dark text */
+            margin: 0;
+        }
+        h1 {
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        textarea {
+            width: 90%;
+            max-width: 800px;
+            height: 200px;
+            font-size: 1.1em;
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            outline: none;
+            resize: none;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .word-count {
+            margin-top: 10px;
+            font-size: 1.2em;
+            color: #9E122C; /* Deep red */
+        }
+    </style>
+</head>
+<body>
+    <h1>Word Count Tracker</h1>
+    <textarea id="textInput" placeholder="Start typing here..."></textarea>
+    <div class="word-count" id="wordCount">Word Count: 0</div>
+
+    <script>
+        const textInput = document.getElementById('textInput');
+        const wordCountDisplay = document.getElementById('wordCount');
+
+        function updateWordCount() {
+            const text = textInput.value.trim();
+            const words = text ? text.split(/\s+/) : [];
+            wordCountDisplay.textContent = `Word Count: ${words.length}`;
+        }
+
+        textInput.addEventListener('input', updateWordCount);
+    </script>
+</body>
+</html>
